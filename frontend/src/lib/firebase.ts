@@ -30,7 +30,7 @@ export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 
 // Connect to Firebase Auth Emulator in local dev mode
-const useEmulator = import.meta.env.VITE_USE_FIREBASE_EMULATOR === "true" || import.meta.env.DEV;
+const useEmulator = import.meta.env.VITE_USE_FIREBASE_EMULATOR === "true";
 if (useEmulator) {
   const emulatorHost = import.meta.env.VITE_FIREBASE_AUTH_EMULATOR_HOST || "http://127.0.0.1:9099";
   try {

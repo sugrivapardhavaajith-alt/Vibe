@@ -31,10 +31,8 @@ import { ProgressRepository } from './ProgressRepository.js';
 import { USERS_TYPES } from '#root/modules/users/types.js';
 import { Module } from '#root/modules/courses/classes/index.js';
 import { EnrollmentRepository } from './EnrollmentRepository.js';
-import {
-  ANOMALIES_TYPES,
-  AnomalyRepository,
-} from '#root/modules/anomalies/index.js';
+import { ANOMALIES_TYPES } from '#root/modules/anomalies/types.js';
+import { AnomalyRepository } from '#root/modules/anomalies/repositories/providers/mongodb/AnomalyRepository.js';
 import { SETTING_TYPES } from '#root/modules/setting/types.js';
 import { COURSE_REGISTRATION_TYPES } from '#root/modules/courseRegistration/types.js';
 import { ICourseRegistrationRepository } from '#root/shared/database/interfaces/ICourseRegistrationRepository.js';

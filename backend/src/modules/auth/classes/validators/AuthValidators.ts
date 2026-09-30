@@ -46,9 +46,8 @@ class SignUpBody {
     example: 'John',
     type: 'string',
   })
-  @Matches(/^[A-Za-z ]+$/, {
-    message: 'name can only contain alphabetic characters and spaces',
-  })
+  @IsString()
+  @IsNotEmpty()
   firstName: string;
 
   @JSONSchema({
@@ -57,10 +56,8 @@ class SignUpBody {
     example: 'Smith',
     type: 'string',
   })
-  @Matches(/^[A-Za-z ]+$/, {
-    message: 'name can only contain alphabetic characters and spaces',
-  })
   @IsOptional()
+  @IsString()
   lastName?: string;
 
   @JSONSchema({
@@ -116,9 +113,8 @@ class GoogleSignUpBody {
     example: 'John',
     type: 'string',
   })
-  @Matches(/^[A-Za-z ]+$/, {
-    message: 'name can only contain alphabetic characters and spaces',
-  })
+  @IsOptional()
+  @IsString()
   firstName: string;
 
   @JSONSchema({
@@ -127,10 +123,8 @@ class GoogleSignUpBody {
     example: 'Smith',
     type: 'string',
   })
-  @Matches(/^[A-Za-z ]+$/, {
-    message: 'name can only contain alphabetic characters and spaces',
-  })
   @IsOptional()
+  @IsString()
   lastName?: string;
 
   @JSONSchema({

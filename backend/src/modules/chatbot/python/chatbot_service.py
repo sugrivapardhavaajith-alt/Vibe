@@ -34,9 +34,8 @@ import uvicorn
 HAS_FASTAPI = True
 
 PREFERRED_MODELS = [
-    'gemini-flash-latest',
-    'gemini-2.0-flash',
-    'gemini-2.0-flash-lite',
+    'gemini-3.8-flash',
+    'gemini-3.5-flash-lite',
     'gemini-pro-latest',
 ]
 
@@ -103,7 +102,7 @@ def query_gemini(question: str, context: str = "") -> str:
             last_err = err
             err_msg = str(err)
             sys.stderr.write(f"Gemini model {model_name} failed: {err_msg}\n")
-            if any(k in err_msg for k in ['404', 'NOT_FOUND', 'no longer available', '429', 'RESOURCE_EXHAUSTED', 'Quota exceeded']):
+            if any(k in err_msg for k in ['404', 'NOT_FOUND', 'no longer available', '429', 'RESOURCE_EXHAUSTED', 'Quota exceeded', '503', 'UNAVAILABLE', 'high demand']):
                 continue  # try next model
             break
 

@@ -12,7 +12,7 @@ import {
   DetectorOptionsDto,
   DetectorSettingsDto,
   ProctoringSettingsDto,
-} from '#setting/index.js';
+} from '#setting/classes/index.js';
 
 /**
  * Interface representing a repository for settings related operations.
