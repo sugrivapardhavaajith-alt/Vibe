@@ -30,7 +30,11 @@ export class ChatbotService {
   ) {}
 
   private async callPythonChatbot(question: string, context: string): Promise<string> {
-    const pythonServiceUrl = process.env.CHATBOT_PYTHON_URL || 'http://127.0.0.1:5001/query';
+    // Use Vercel's CHATBOT_URL binding if present, else fallback to old env or localhost
+    let pythonServiceUrl = process.env.CHATBOT_PYTHON_URL || 'http://127.0.0.1:5001/query';
+    if (process.env.CHATBOT_URL) {
+      pythonServiceUrl = new URL('/query', process.env.CHATBOT_URL).toString();
+    }
 
     // 1. Attempt HTTP request to Python FastAPI microservice
     try {
